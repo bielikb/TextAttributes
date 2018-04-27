@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target   = "9.0"
   s.requires_arc = true
   s.source       = { :git => "https://github.com/bielikb/TextAttributes.git", :tag => s.version.to_s }
-  s.source_files  = 'Source/TextAttributes/**/*.{h,m,swift}'
+  s.source_files  = 'Source/TextAttributes/**/*.{h,swift}'
   s.swift_version = "4.0"
 end
