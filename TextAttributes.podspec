@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "TextAttributes"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "TextAttributes provides simple API for setting text attributes."
   s.description  = "TextAttributes provides simple to use API for setting text attributes for common UIKit components."
   s.homepage     = "https://github.com/bielikb/TextAttributes.git"
