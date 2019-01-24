@@ -1,7 +1,7 @@
 # TextAttributes
 TextAttributes provides simple to use API for setting text attributes for common UIKit components.
 
-TextAttributes allow you to forget about chunky `NSAttributedString` API.
+TextAttributes allow you to forget about chunky `NSAttributedString` API == you don't have to remember the [NSAttributedStringKey: Any] or it's consecutive string keys (`.font`, `.foregroundColor`, `.kern`) and rather focus directly on styling.
 
 # Usage
 
