@@ -23,3 +23,15 @@ button.setAttributes(textAttributes, for: .normal)
 ```
 textView.textAttributes = textAttributes
 ```
+
+
+# Cocoapods
+Add source
+
+```
+source 'https://github.com/bielikb/TextAttributes.git'
+```
+
+```
+pod 'TextAttributes', '~> 1.0.1'
+```
