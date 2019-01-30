@@ -10,21 +10,31 @@ import Foundation
 import UIKit
 
 public extension UIButton {
-    
+
     public var textAttributes: TextAttributes? {
         set {
             setAttributes(newValue, for: .normal)
         }
         get {
-            guard let color = titleColor(for: .normal), let font = titleLabel?.font else {
+            guard
+                let color = titleColor(for: .normal),
+                let font = titleLabel?.font else {
                 return nil
             }
-            
-            return TextAttributes.attributes(font: font, color: color, backgroundColor: backgroundColor)
+
+            return TextAttributes.attributes(font: font,
+                                             color: color,
+                                             backgroundColor: backgroundColor
+            )
         }
     }
-    
-    @objc public func setAttributes(_ attributes: TextAttributes?, for state: UIControlState) {
+
+    /// Set text attributes for given state
+    ///
+    /// - Parameters:
+    ///   - attributes: text attributes
+    ///   - state: state
+    @objc public func setAttributes(_ attributes: TextAttributes?, for state: UIControl.State) {
         titleLabel?.font = attributes?.font
         backgroundColor = attributes?.backgroundColor
         setTitleColor(attributes?.color ?? UIColor.black, for: state)

@@ -10,23 +10,26 @@ import Foundation
 import UIKit
 
 public extension UILabel {
-    
+
     public var textAttributes: TextAttributes! {
         set {
-            if let fnt = newValue?[NSAttributedStringKey.font] as? UIFont {
+            if let fnt = newValue?[.font] as? UIFont {
                 self.font = fnt
             }
-            
-            if let bckgroundColor = newValue?[NSAttributedStringKey.backgroundColor] as? UIColor {
+
+            if let bckgroundColor = newValue?[.backgroundColor] as? UIColor {
                 self.backgroundColor = bckgroundColor
             }
-            
-            if let txtColor = newValue?[NSAttributedStringKey.foregroundColor] as? UIColor {
+
+            if let txtColor = newValue?[.foregroundColor] as? UIColor {
                 self.textColor = txtColor
             }
         }
         get {
-            return TextAttributes.attributes(font: font, color: textColor, backgroundColor: backgroundColor)
+            return TextAttributes.attributes(font: font,
+                                             color: textColor,
+                                             backgroundColor: backgroundColor
+            )
         }
     }
 }

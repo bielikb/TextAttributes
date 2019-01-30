@@ -9,60 +9,71 @@
 import Foundation
 import UIKit
 
-public typealias TextAttributes = Dictionary<NSAttributedStringKey, Any>
+public typealias TextAttributes = [NSAttributedString.Key: Any]
 
-public extension Collection where Iterator.Element == (key: NSAttributedStringKey, value: Any) {
-    
-    /// Text Attributes 
+public extension Collection where Iterator.Element == (key: NSAttributedString.Key, value: Any) {
+
+    var textAttributes: TextAttributes? {
+        return (self as? TextAttributes)
+    }
+
+    /// Text Attributes
+    ///
+    /// - Parameters:
+    ///   - font: font
+    ///   - color: color
+    ///   - backgroundColor: background color
+    ///   - kerning: kerning of the text
+    /// - Returns: text attributes
     public static func attributes(font: UIFont,
                                   color: UIColor,
                                   backgroundColor: UIColor? = nil,
-                                  spacing: Float? = nil) -> TextAttributes {
-        var attributes: [NSAttributedStringKey : Any] = [
+                                  kerning: Float? = nil) -> TextAttributes {
+        var attributes: [NSAttributedString.Key: Any] = [
             .font: font,
             .foregroundColor: color
         ]
-        
+
         if backgroundColor != nil {
             attributes[.backgroundColor] = backgroundColor
         }
-        
-        if let spacing = spacing {
-            attributes[.kern] = NSNumber(value: spacing)
+
+        if let kerning = kerning {
+            attributes[.kern] = NSNumber(value: kerning)
         }
-        
+
         return attributes
     }
-    
+
     /// Font
     public var font: UIFont? {
-        return (self as? TextAttributes)?[.font] as? UIFont
+        return (textAttributes)?[.font] as? UIFont
     }
-    
+
     /// Text Color
     public var color: UIColor? {
-        return (self as? TextAttributes)?[.foregroundColor] as? UIColor
+        return (textAttributes)?[.foregroundColor] as? UIColor
     }
-    
+
     /// Background color
     public var backgroundColor: UIColor? {
-        return (self as? TextAttributes)?[.backgroundColor] as? UIColor
+        return (textAttributes)?[.backgroundColor] as? UIColor
     }
-    
+
     /// Kerning
-    public var spacing: Float? {
-        return ((self as? TextAttributes)?[.kern] as? NSNumber)?.floatValue
+    public var kerning: Float? {
+        return (textAttributes?[.kern] as? NSNumber)?.floatValue
     }
-    
+
     /// Set text color
     public mutating func setColor(_ color: UIColor?) {
-        var attributes = (self as? TextAttributes)
+        var attributes = textAttributes
         attributes?[.foregroundColor] = color
     }
-    
+
     /// Set background color
     public mutating func setBackgroundColor(_ color: UIColor?) {
-        var attributes = (self as? TextAttributes)
+        var attributes = textAttributes
         attributes?[.backgroundColor] = color
     }
 }
