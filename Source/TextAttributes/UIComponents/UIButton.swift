@@ -34,7 +34,7 @@ public extension UIButton {
     /// - Parameters:
     ///   - attributes: text attributes
     ///   - state: state
-    @objc public func setAttributes(_ attributes: TextAttributes?, for state: UIControl.State) {
+    @objc public func setAttributes(_ attributes: TextAttributes?, for state: UIControl.State = .normal) {
         titleLabel?.font = attributes?.font
         backgroundColor = attributes?.backgroundColor
         setTitleColor(attributes?.color ?? UIColor.black, for: state)

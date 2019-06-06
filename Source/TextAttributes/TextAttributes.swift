@@ -47,17 +47,17 @@ public extension Collection where Iterator.Element == (key: NSAttributedString.K
 
     /// Font
     public var font: UIFont? {
-        return (textAttributes)?[.font] as? UIFont
+        return textAttributes?[.font] as? UIFont
     }
 
     /// Text Color
     public var color: UIColor? {
-        return (textAttributes)?[.foregroundColor] as? UIColor
+        return textAttributes?[.foregroundColor] as? UIColor
     }
 
     /// Background color
     public var backgroundColor: UIColor? {
-        return (textAttributes)?[.backgroundColor] as? UIColor
+        return textAttributes?[.backgroundColor] as? UIColor
     }
 
     /// Kerning
