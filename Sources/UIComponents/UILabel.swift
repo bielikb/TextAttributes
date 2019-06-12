@@ -7,11 +7,13 @@
 //
 
 import Foundation
+
+#if canImport(UIKit)
 import UIKit
 
 public extension UILabel {
 
-    public var textAttributes: TextAttributes! {
+    var textAttributes: TextAttributes! {
         set {
             if let fnt = newValue?[.font] as? UIFont {
                 self.font = fnt
@@ -33,3 +35,4 @@ public extension UILabel {
         }
     }
 }
+#endif

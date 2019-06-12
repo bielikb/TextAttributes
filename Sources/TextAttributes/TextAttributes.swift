@@ -7,6 +7,9 @@
 //
 
 import Foundation
+
+#if canImport(UIKit)
+
 import UIKit
 
 public typealias TextAttributes = [NSAttributedString.Key: Any]
@@ -25,7 +28,7 @@ public extension Collection where Iterator.Element == (key: NSAttributedString.K
     ///   - backgroundColor: background color
     ///   - kerning: kerning of the text
     /// - Returns: text attributes
-    public static func attributes(font: UIFont,
+    static func attributes(font: UIFont,
                                   color: UIColor,
                                   backgroundColor: UIColor? = nil,
                                   kerning: Float? = nil) -> TextAttributes {
@@ -46,34 +49,36 @@ public extension Collection where Iterator.Element == (key: NSAttributedString.K
     }
 
     /// Font
-    public var font: UIFont? {
+    var font: UIFont? {
         return textAttributes?[.font] as? UIFont
     }
 
     /// Text Color
-    public var color: UIColor? {
+    var color: UIColor? {
         return textAttributes?[.foregroundColor] as? UIColor
     }
 
     /// Background color
-    public var backgroundColor: UIColor? {
+    var backgroundColor: UIColor? {
         return textAttributes?[.backgroundColor] as? UIColor
     }
 
     /// Kerning
-    public var kerning: Float? {
+    var kerning: Float? {
         return (textAttributes?[.kern] as? NSNumber)?.floatValue
     }
 
     /// Set text color
-    public mutating func setColor(_ color: UIColor?) {
+    mutating func setColor(_ color: UIColor?) {
         var attributes = textAttributes
         attributes?[.foregroundColor] = color
     }
 
     /// Set background color
-    public mutating func setBackgroundColor(_ color: UIColor?) {
+    mutating func setBackgroundColor(_ color: UIColor?) {
         var attributes = textAttributes
         attributes?[.backgroundColor] = color
     }
 }
+
+#endif
