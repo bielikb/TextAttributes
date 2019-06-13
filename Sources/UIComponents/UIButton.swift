@@ -7,11 +7,13 @@
 //
 
 import Foundation
+
+#if canImport(UIKit)
 import UIKit
 
 public extension UIButton {
 
-    public var textAttributes: TextAttributes? {
+    var textAttributes: TextAttributes? {
         set {
             setAttributes(newValue, for: .normal)
         }
@@ -34,9 +36,10 @@ public extension UIButton {
     /// - Parameters:
     ///   - attributes: text attributes
     ///   - state: state
-    @objc public func setAttributes(_ attributes: TextAttributes?, for state: UIControl.State = .normal) {
+    @objc func setAttributes(_ attributes: TextAttributes?, for state: UIControl.State = .normal) {
         titleLabel?.font = attributes?.font
         backgroundColor = attributes?.backgroundColor
         setTitleColor(attributes?.color ?? UIColor.black, for: state)
     }
 }
+#endif
