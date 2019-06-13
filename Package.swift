@@ -23,6 +23,5 @@ let package = Package(
         .testTarget(
             name: "TextAttributesTests",
             dependencies: ["TextAttributes"]),
-    ],
-    swiftLanguageVersions:[ .v5]
+    ]
 )
